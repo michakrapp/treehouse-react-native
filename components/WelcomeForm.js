@@ -23,7 +23,7 @@ class WelcomeForm extends Component{
   constructor(props){
     super(props)
 
-    ths.state = {
+    this.state = {
       teamName: ''
     }
 
