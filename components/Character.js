@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
 /**
- * TODO Step 3: done
+ * Step 3:
  * 1. Add Image component to display the character's image
  * 2. Add Text component to display the character's name
  * 3. Add styles to the Image and Text component
