@@ -3,6 +3,9 @@
 # expo
 .expo/
 
+/metro-cache*
+/haste-map-metro*
+
 # dependencies
 /node_modules
 
