@@ -4,7 +4,7 @@ import Button from 'react-native-button';
 import { Actions as RouteActions } from 'react-native-router-flux';
 
 /**
- * TODO Step 3:
+ * TODO Step 3: done
  *
  * 1. Inside of the constructor set the default state of teamName
  *    i.e. this.state = {teamName: ''}
@@ -26,15 +26,26 @@ class WelcomeForm extends Component{
     ths.state = {
       teamName: ''
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   render(){
     return(
       <View style={styles.container}>
          <View style = {styles.textInputContainer} >
+           <TextInput
+             placeholder="team name"
+             style={styles.textInput}
+             onChange={(text) => this.setState({teamName: text})}/>
+           <Button style={styles.button} onPress={this.handleSubmit}>Get started</Button>
          </View>
       </View>
     )
+  }
+
+  handleSubmit(){
+    this.props.onSubmit(this.state.teamName)
   }
 }
 const styles = StyleSheet.create({
@@ -76,3 +87,9 @@ const styles = StyleSheet.create({
      letterSpacing: 3
    }
  })
+
+ WelcomeForm.propTypes = {
+   onSubmit: PropTypes.func.isRequired
+ }
+
+ export default WelcomeForm
