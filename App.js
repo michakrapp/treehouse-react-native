@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 const store = configureStore({});
 
 /**
- * TODO Step 4:
+ * Step 4:
  *
  * 1. Create Redux store with imported configureStore function.
  * 2. Wrap Router Component with imported Provider Component
