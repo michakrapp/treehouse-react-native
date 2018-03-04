@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, View, Text, StyleSheet} from 'react-native';
+import {Button, ImageBackground, View, Text, StyleSheet} from 'react-native';
 //Actions is provided by the router for dynamic routing
 import { Actions as RouteActions} from 'react-native-router-flux';
 import WelcomeContainer from '../containers/WelcomeContainer';
@@ -8,11 +8,11 @@ import WelcomeContainer from '../containers/WelcomeContainer';
 
   render(){
     return(
-      <Image style = { styles.image } source={require('../assets/marvel_background.jpg')}>
+      <ImageBackground style={ styles.image } source={require('../assets/marvel_background.jpg')} >
         <View style={styles.container}>
           <WelcomeContainer />
         </View>
-      </Image>
+      </ImageBackground>
     )
   }
 }
@@ -32,7 +32,5 @@ const styles = StyleSheet.create({
    justifyContent: 'center',
   },
 })
-
-
 
 export default WelcomeScene;
