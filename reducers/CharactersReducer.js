@@ -7,7 +7,7 @@ import {
 } from '../actions/actions';
 
 /**
- * TODO Step 4:
+ * Step 4:
  *
  * 1. Create GET_CHARACTERS_REQUESTED case
  * 2. Create GET_CHARACTERS_SUCCESS case
@@ -17,12 +17,18 @@ export default function CharactersReducer(state = {items: {}, isLoading: false, 
   switch(action.type) {
 
     /*1. Add requested cases here
-
     */
+    case GET_CHARACTERS_REQUESTED:
+      return {...state, isLoading: true}
 
     /* 2. Add character success case here
-
     */
+    case GET_CHARACTERS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        items: convertMarvelResponse(actions.payload.characters)
+      }
 
     case SKIP:
     case SELECT:
