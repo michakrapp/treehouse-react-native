@@ -33,8 +33,8 @@ class SelectionCarousel extends Component{
           <Character characterThumbnail={character.thumbnail} name={character.name} />
         </View>
         <View style={styles.buttonContainer}>
-          <Button style={styles.skipButton} onPress={() => onSkip(character.id)}>Skip</Button>
-          <Button style={styles.selectButton} onPress={() => onSelect(character.id)}>Select</Button>
+          <Button style={styles.skipButton} onPress={() => onSkip(character.id)} title='Skip' />
+          <Button style={styles.selectButton} onPress={() => onSelect(character.id)} title='Select' />
         </View>
       </View>
     )

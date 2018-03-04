@@ -38,7 +38,7 @@ class WelcomeForm extends Component{
              placeholder="team name"
              style={styles.textInput}
              onChange={(text) => this.setState({teamName: text})}/>
-           <Button style={styles.button} onPress={this.handleSubmit}>Get started</Button>
+           <Button style={styles.button} onPress={this.handleSubmit} title='Get started'/>
          </View>
       </View>
     )
