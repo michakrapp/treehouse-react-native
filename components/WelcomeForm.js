@@ -4,7 +4,7 @@ import {Button, View, Text, StyleSheet, TextInput, Image} from 'react-native';
 import { Actions as RouteActions } from 'react-native-router-flux';
 
 /**
- * TODO Step 3: done
+ * Step 3:
  *
  * 1. Inside of the constructor set the default state of teamName
  *    i.e. this.state = {teamName: ''}
