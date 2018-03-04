@@ -16,7 +16,7 @@ class Character extends Component{
 
     return(
       <View style={styles.container}>
-        <Image source={{ uri: characterThumbnail }} style={styles.image}
+        <Image source={{ uri: characterThumbnail }} style={styles.image} />
         <Text style={styles.text}>
           {name}
         </Text>
