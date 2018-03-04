@@ -1,38 +1,43 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native';
 import {Actions as RouteActions} from 'react-native-router-flux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as ActionCreators from '../actions/actions';
 
 import WelcomeForm from '../components/WelcomeForm';
 
 /**
- * Step 3:
+ * TODO Step 4:
  *
- * 1. Create WelcomeContainer component
- * 2. Setup component class constructor
- * 3. Add WelcomeForm component to WelcomeContainer render method.
- * 4. Add onSubmit event handler to WelcomeForm and pass handleSubmit
- *    component method to it
- * 5. Add handleSubmit component method with dynamic routing using RouteActions.tabbar()
- * 6. Bind the handleSubmit component method inside of the constuctor,
- *    i.e this.handleSubmit = this.handleSubmit.bind(this)
- * 7. Export WelcomeContainer component at the bottom of page
+ * 1. Add mapDispatchToProps and connect export
+ * 2. Delete old export
+ * 3. Add setTeamName action from redux Actions inside the handleSubmit component method.
+ *    i.e. this.props.Actions.setTeamName(teamName)
  */
 
 class WelcomeContainer extends Component{
   constructor(props){
     super(props)
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render(){
     return(
-      <WelcomeForm onSubmit={this.handleSubmit}/>
+      <View style={styles.container}>
+        <WelcomeForm onSubmit={this.handleSubmit} />
+      </View>
     )
   }
 
-  handleSubmit(teamName){
-    RouteActions.tabbar()
+  handleSubmit(teamName) {
+
+    this.props.Actions.setTeamName(teamName);
+
+    //Navigate to tabbar key
+    RouteActions.tabbar();
+
   }
 }
 
@@ -42,4 +47,10 @@ const styles = StyleSheet.create({
   }
 })
 
-export default WelcomeContainer
+function mapDispatchToProps(dispatch){
+  return {
+    Actions: bindActionCreators(ActionCreators, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(WelcomeContainer);
