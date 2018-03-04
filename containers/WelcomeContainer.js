@@ -8,7 +8,7 @@ import * as ActionCreators from '../actions/actions';
 import WelcomeForm from '../components/WelcomeForm';
 
 /**
- * TODO Step 4:
+ * Step 4:
  *
  * 1. Add mapDispatchToProps and connect export
  * 2. Delete old export
