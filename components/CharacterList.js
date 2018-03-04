@@ -27,7 +27,7 @@ class CharacterList extends Component{
     let { characters} = this.props;
 
     return Object.keys(characters).map((id, i) => {
-      return(<Character key={i} characterThumbnail={characters[id].thumbnail} />);
+      return(<Character key={i} characterThumbnail={characters[id].thumbnail} name={characters[id].name} />);
     })
   }
 }
