@@ -5,7 +5,7 @@ import {Actions as RouteActions} from 'react-native-router-flux';
 import WelcomeForm from '../components/WelcomeForm';
 
 /**
- * TODO Step 3:
+ * Step 3:
  *
  * 1. Create WelcomeContainer component
  * 2. Setup component class constructor
