@@ -10,7 +10,7 @@ export const GET_CHARACTERS_FAILURE = 'GET_CHARACTERS_FAILURE';
 
 
 /**
- * TODO Step 4:
+ * Step 4:
  *
  * 1. Create select method
  * 2. Dispatch our getCharactersRequested and getCharactersSuccess
@@ -34,6 +34,12 @@ export function setTeamName(teamName) {
 * @param character
 */
  // 1.
+ export function select(character){
+   return {
+     type: SELECT,
+     payload: { character }
+   }
+ }
 
 /**
 * Skip Character
@@ -77,9 +83,9 @@ export function skip(character) {
      };
 
     /* 2. Dispatch getCharactersRequested and getCharactersSuccess here
-
     */
-
+    dispatch(getCharactersRequested());
+    dispatch(getCharactersSuccess(marvelResponse.data.results));
    };
  };
 
