@@ -2,40 +2,35 @@ import React, {Component} from 'react';
 import {Button, View, Text, StyleSheet} from 'react-native';
 //Actions is provided by the router for dynamic routing
 import { Actions as RouteActions} from 'react-native-router-flux';
+import WelcomeContainer from '../containers/WelcomeContainer';
 
-/*
- * TODO Step 2:
- *
- * 1. Create WelcomeScene class with render method.
- * 2. Add View render with the container styles.
- * 3. Add Text that says "WelcomeScene" inside of the View
- * 4. Add Button component with onPress action handler
- * 5. Add RouteActions.tabbar to our button to route to our next scene
- */
+ class WelcomeScene extends Component{
 
- class WelcomeScene extends Component {
-   render(){
-     return(
-       <View style={styles.container}>
-        <Text style={styles.text}>Welcome Scene</Text>
-        <Button style={styles.button} onPress={RouteActions.tabbar} title="Get Started"/>
-       </View>
-     )
-   }
- }
+  render(){
+    return(
+      <Image style = { styles.image } source={require('../assets/marvel_background.jpg')}>
+        <View style={styles.container}>
+          <WelcomeContainer />
+        </View>
+      </Image>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   container:{
-    flex:1,
+    flex: 1,
     justifyContent: 'center',
+    alignSelf: 'stretch',
+    backgroundColor: 'rgba(48,51,58, 0.8)',
   },
-  text:{
-    color:'red',
-    textAlign:'center'
+ image: {
+   flex: 1,
+   width: null,
+   height: null,
+   alignItems: 'center',
+   justifyContent: 'center',
   },
-  button: {
-    color:'blue',
-  }
 })
 
 
