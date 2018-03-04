@@ -1,6 +1,6 @@
-import React, {Component, PropTypes} from 'react';
-import {View, StyleSheet} from 'react-native';
-import Button from 'react-native-button';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {Button, View, StyleSheet} from 'react-native';
 
 import Character from './Character';
 
