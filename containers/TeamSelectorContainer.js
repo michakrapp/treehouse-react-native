@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
+import { Actions as RouteActions } from 'react-native-router-flux';
 import {View, Text, StyleSheet} from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as ActionCreators from '../actions/actions';
 
 import SelectionCarousel from '../components/SelectionCarousel';
 
@@ -11,25 +16,25 @@ class TeamSelectorContainer extends Component{
     this.handleSelect = this.handleSelect.bind(this);
     this.handleSkip = this.handleSkip.bind(this);
 
-    this.state = {
-      active: 1,
-      characters: {
-        1: {id: 1, name: 'Hulk', thumbnail: 'https://media.giphy.com/media/XSc4Kkc5u2WZy/giphy.gif?response_id=5924e51c9c00278bccae6381'},
-        2: {id: 2, name: 'Spiderman', thumbnail: 'https://media.giphy.com/media/wxM2SPuC0xONy/giphy.gif?response_id=5924e4fbdce001eee5377580'},
-        3: {id: 3, name: 'Wolverine', thumbnail: 'https://media.giphy.com/media/12m3hgKuSuhClW/giphy.gif?response_id=5924e4caa6a5ded54cf455f4'}
-     }
-    };
+  }
 
+  componentWillMount(){
+    this.props.Actions.getCharacters()
   }
 
   render(){
 
-    let { characters, active } = this.state;
+    let { characters } = this.props;
+
+    let activeCharacterId = characters && characters.items ? Object.keys(characters.items).pop() : null;
+
+    if (!activeCharacterId) return null;
+
 
     return(
       <View style={styles.container}>
         <SelectionCarousel
-          character={characters[active]}
+          character={characters.items[activeCharacterId]}
           onSelect={this.handleSelect}
           onSkip={this.handleSkip}
         />
@@ -38,11 +43,13 @@ class TeamSelectorContainer extends Component{
   }
 
   handleSelect(id) {
-    this.setState({active: id === 3 ? 1 : ++id});
-  }
 
+    let { characters, Actions } = this.props;
+    Actions.select(characters.items[id]);
+  }
   handleSkip(id) {
-    this.setState({active: id === 3 ? 1 : ++id});
+    let { characters, Actions } = this.props;
+    Actions.skip(characters.items[id]);
   }
 
 }
@@ -54,4 +61,14 @@ const styles = StyleSheet.create({
   }
 })
 
-export default TeamSelectorContainer;
+function mapStateToProps(state) {
+  return { characters: state.characters };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    Actions: bindActionCreators(ActionCreators, dispatch),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeamSelectorContainer);
