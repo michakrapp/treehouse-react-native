@@ -5,7 +5,7 @@ import Button from 'react-native-button';
 import Character from './Character';
 
 /**
- * TODO Step 3:
+ * Step 3:
  *
  * 1. Destructure character, onSelect, onSkip from this.props inside the render
  *    component method.
