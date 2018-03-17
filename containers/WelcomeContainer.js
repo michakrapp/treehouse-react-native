@@ -33,7 +33,7 @@ class WelcomeContainer extends Component{
 
   handleSubmit(teamName) {
 
-    this.props.Actions.setTeamName(teamName);
+    this.props.Actions.setTeamName(teamName)
 
     //Navigate to tabbar key
     RouteActions.tabbar();
